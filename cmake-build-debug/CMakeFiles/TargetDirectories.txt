@@ -1,0 +1,3 @@
+C:/Users/jauso/CLionProjects/Shannon/cmake-build-debug/CMakeFiles/Shannon.dir
+C:/Users/jauso/CLionProjects/Shannon/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/jauso/CLionProjects/Shannon/cmake-build-debug/CMakeFiles/rebuild_cache.dir
