@@ -1,99 +1,63 @@
 // PRIMER za BinReader in BinWriter
 #include <iostream>
-#include <fstream>
+#include "BinWriter.cpp"
+#include "BinReader.cpp"
+#include <vector>
+#include <map>
+#include <algorithm>
+
 using namespace std;
 
-class BinWriter {
-public:
-	int k;
-	ofstream f;
-	char x;
+bool contains(string niz, char ch) {
+    for (int i = 0; i < niz.size(); i++) {
+        if (niz[i] == ch) {
+            return true;
+        }
+    }
+    return false;
+}
 
-	BinWriter(const char *p) : k(0) {
-		f.open(p, ios::binary);
-	}
+template <typename T>
+void print_vector(const std::vector<T>& vec) {
+    for (const T& element : vec) {
+        std::cout << element << " ";
+    }
+    std::cout << std::endl;
+}
 
-	~BinWriter() {
-		if (k > 0) writeByte(x);
-		f.close();
-	}
-
-	void writeByte(char x) {
-		f.write((char*)&x, 1);
-	}
-
-	void writeInt(int y) {
-		f.write((char*)&y, 4);
-	}
-
-    void writeFloat(float y) {
-        f.write((char*)&y, 32);
+void shannon_fano(const string niz) {
+    map<char, int> stats;
+    for (auto &ch : niz) {
+        if (contains(niz, ch))
+            stats[ch] += 1;
     }
 
-	void writeBit(bool b) {
-		if (k == 8) {
-			writeByte(x);
-			k = 0;
-		}
-		x ^= (-b ^ x) & (1 << k);
-		k++;
-	}
-};
+    vector<pair<char, int>> pairs(stats.begin(), stats.end());
+    sort(pairs.begin(), pairs.end(), [](const pair<char, int>& a, const pair<char, int>& b) {
+        return a.second > b.second;
+    });
 
-class BinReader {
-public:
-	int k;
-	ifstream f;
-	char x;
+    for (const auto& pair : pairs) {
+        std::cout << pair.first << ": " << pair.second << std::endl;
+    }
+}
 
-	BinReader(const char *p) : k(0) {
-		f.open(p, ios::binary);
-	}
-
-	char readByte() {
-		f.read((char*)&x, 1);
-		return x;
-	}
-
-	bool readBit() {
-		if (k == 8) {
-			readByte();
-			k = 0;
-		}
-		bool b = (x >> k) & 1;
-		k++;
-		return b;
-	}
-
-    int readInt() {
-        f.read((char*)&x, 4);
-        return x;
+int main(int argc, const char *const argv[]) {
+    if (argc != 3) {
+        return -1;
     }
 
-    float readFloat() {
-        f.read((char*)&x, 32);
-        return x;
+    const string file_name = argv[2];
+    const char* option = argv[1];
+
+    if (*option == 'c') {
+        shannon_fano("ABRACADABRA");
     }
-};
+    else if (*option == 'd') {
 
-int main() {
-	BinWriter bw("test.bin");
-	bw.writeBit(1);
-	bw.writeBit(0);
-	bw.writeBit(0);
-	bw.writeBit(0);
-	bw.writeBit(0);
-	bw.writeBit(0);
-	bw.writeBit(1);
-	bw.writeBit(0); 
-	bw.writeByte(bw.x);
-	bw.f.close();
+    }
 
-	BinReader br("test.bin");
-	br.readByte();
-	for (int i = 0; i < 8; ++i)
-		std::cout << (int)br.readBit() << "\n";
-	br.f.close();
+    shannon_fano("ABRACADABRA");
 
 	return 0;
 }

@@ -1,3 +1,21 @@
 # ninja log v5
 0	360	7377181008321334	CMakeFiles/Shannon.dir/main.cpp.obj	caa6bf608266a3ac
 362	472	7377181009401909	Shannon.exe	7b877c9f8d5e0de1
+7	321	7377203356137081	CMakeFiles/Shannon.dir/BinWriter.cpp.obj	b92b41381c496f04
+10	322	7377203356147713	CMakeFiles/Shannon.dir/BinReader.cpp.obj	8ba56071b18177fd
+3	406	7377203356998400	CMakeFiles/Shannon.dir/main.cpp.obj	caa6bf608266a3ac
+407	590	7377203358802989	Shannon.exe	2e1b87ba5ef3140a
+3	536	7377218594894830	CMakeFiles/Shannon.dir/main.cpp.obj	caa6bf608266a3ac
+537	711	7377218596612640	Shannon.exe	2e1b87ba5ef3140a
+3	573	7377228566929537	CMakeFiles/Shannon.dir/main.cpp.obj	caa6bf608266a3ac
+574	675	7377228567940830	Shannon.exe	2e1b87ba5ef3140a
+3	538	7377267598874473	CMakeFiles/Shannon.dir/main.cpp.obj	caa6bf608266a3ac
+538	647	7377267599954350	Shannon.exe	2e1b87ba5ef3140a
+3	570	7377268153996678	CMakeFiles/Shannon.dir/main.cpp.obj	caa6bf608266a3ac
+571	677	7377268155042485	Shannon.exe	2e1b87ba5ef3140a
+3	527	7377272471618182	CMakeFiles/Shannon.dir/main.cpp.obj	caa6bf608266a3ac
+528	628	7377272472604847	Shannon.exe	2e1b87ba5ef3140a
+3	543	7377298686811569	CMakeFiles/Shannon.dir/main.cpp.obj	caa6bf608266a3ac
+543	652	7377298687872744	Shannon.exe	2e1b87ba5ef3140a
+3	548	7377299238309064	CMakeFiles/Shannon.dir/main.cpp.obj	caa6bf608266a3ac
+548	649	7377299239299056	Shannon.exe	2e1b87ba5ef3140a
